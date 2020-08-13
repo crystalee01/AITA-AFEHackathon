@@ -6,6 +6,6 @@ AITA allows students and teachers to customize timers for specific work periods 
 Note: Our Alexa skill was built using provisioned AWS resources provided at the hackathon; therefore all functionality using AWS resources in our skill are unsupported at this time. 
 
 ## Interacting with AITA
-- To create a new timer: <em>"Alexa, set [homework time] for [15 minutes]. </em>
+- To create a new timer: <em>"Alexa, set [homework time] for [15 minutes]." </em>
 - To start a timer: <em>"Alexa, start [homework time]." </em>
   - Alexa will ask the student/teacher if they'd like to play music; respond with Y/N answer. 
