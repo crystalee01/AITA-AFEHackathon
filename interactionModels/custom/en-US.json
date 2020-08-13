@@ -1,0 +1,186 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my aita",
+      "intents": [
+        {
+          "name": "TimerStartIntent",
+          "slots": [],
+          "samples": [
+            "start timer",
+            "begin timer",
+            "to start",
+            "to begin"
+          ]
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "CaptureWorktypeIntent",
+          "slots": [
+            {
+              "name": "worktypeName",
+              "type": "AMAZON.EventType"
+            },
+            {
+              "name": "workDuration",
+              "type": "AMAZON.DURATION",
+              "samples": [
+                "Set it for {workDuration}",
+                "For {workDuration}",
+                "{workDuration}"
+              ]
+            }
+          ],
+          "samples": [
+            "create {worktypeName} time for {workDuration}",
+            "set up {worktypeName} time for {workDuration}",
+            "set {worktypeName} time for {workDuration}",
+            "create {worktypeName} time",
+            "set up  {worktypeName} time",
+            "set {worktypeName}"
+          ]
+        },
+        {
+          "name": "StartWorktypeIntent",
+          "slots": [
+            {
+              "name": "worktypeName",
+              "type": "AMAZON.EventType"
+            }
+          ],
+          "samples": [
+            "let\u0027s start {worktypeName} time",
+            "begin {worktypeName} time",
+            "start {worktypeName} time"
+          ]
+        },
+        {
+          "name": "CaptureMusicPreferenceIntent",
+          "slots": [
+            {
+              "name": "musicPreference",
+              "type": "AITA_StudyMusicType"
+            }
+          ],
+          "samples": [
+            "set my music preference as {musicPreference} ",
+            "set up my study music",
+            "set up my music",
+            "set up music"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "white noise"
+              }
+            },
+            {
+              "name": {
+                "value": "lo-fi"
+              }
+            }
+          ],
+          "name": "AITA_StudyMusicType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CaptureWorktypeIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "worktypeName",
+              "type": "AMAZON.EventType",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "workDuration",
+              "type": "AMAZON.DURATION",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.602410593835.929149441715"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CaptureMusicPreferenceIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "musicPreference",
+              "type": "AITA_StudyMusicType",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.602410593835.929149441715",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "How long should I set {worktypeName} time for"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.711472072897.668532284568",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Your options for music are lo-fi and white noise, which would you prefer?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "10"
+}
